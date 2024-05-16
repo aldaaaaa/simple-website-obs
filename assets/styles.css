@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Mynerve&family=Nunito:wght@500&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F4F787;
+}
+
+/* Header */
+header {
+    display: inline;
+}
+
+nav {
+    background-color: #2F64A3;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.726);
+    position: sticky;
+    top: 0;
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+  
+.logo img {
+    width: 55px;
+    height: auto;
+    margin-left: 20px;
+}
+  
+.logo span {
+    font-family: 'Mynerve', cursive;
+    font-size: 30px;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu a {
+    font-size: 25px;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #F4F787;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu a:hover {
+    color: #F4F787;
+}
+
+.menu a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger:hover .line {
+    background-color: #F4F787;
+}
+
+.line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+}
+
+@media screen and (max-width: 1200px) {
+    main {
+        flex-flow: column nowrap;
+    }
+    main aside {
+        align-self: center;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    nav ul {
+        justify-content: center;
+    }
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #2F64A3;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+        background-color: #2f63a3d3;
+    }
+    .menu.active {
+        display: flex;
+    }
+    .menu ul {
+        flex-direction: column;
+        padding: 0;
+    }
+    .menu li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .hamburger {
+        display: flex;
+        z-index: 2;
+    }
+    .main-content {
+        flex-direction: column; 
+        gap: 20px; 
+    }
+    aside {
+        width: 100%; 
+        position: static;
+        order: -1; 
+    }
+    main aside {
+        align-self: stretch;
+    }
+    main #aboutme {
+        margin-top: 20px;
+        order: 3;
+    }
+}
+
+.card {
+    background-color: white;
+    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    gap: 1.5rem;
+}
+   
+#content {
+    flex: 5;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem 2rem;
+}
+   
+aside {
+    flex: 2.5;
+    text-align: left;
+}
+
+.profile header {
+    text-align: center;
+}
+   
+h2 {
+    color: #00BD56;
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+   
+h3 {
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+/* Summaries */
+.netflix-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.netflix-button img {
+    width: 20px; 
+    height: 20px;
+    margin-right: 5px;
+}
+  
+.netflix-button:hover {
+    background-color: #00BD56;
+}
+
+/* Cast */
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.centered-content h2, .centered-content p {
+    margin: 10px;
+}
+
+.actor-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.actor {
+    text-align: center;
+    flex-basis: calc(25% - 40px);
+    margin: 10px;
+}
+
+.actor-frame {
+    width: 100px;
+    height: 100px;
+    overflow: hidden; 
+    border: 2px solid #2F64A3; 
+}
+
+.actor img {
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out; 
+}
+
+.actor img:hover {
+    border-color: white; 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); 
+    transform: scale(1.1); 
+}
+ 
+/* Ost */
+.section-logo {
+    width: 180px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+}
+
+.text-container {
+    font-size: 20px;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.slider-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-button {
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.slider-button:hover {
+    background-color: #00BD56;
+}
+
+.track-info {
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.listen-now {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+.listen-now span {
+    margin-right: 10px;
+}
+
+.listen-now a {
+    color: #2F64A3;
+    text-decoration: none;
+}
+
+.listen-now a:hover {
+    color: #F4F787;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* About Me*/
+.profile-image {
+    width: 155px; 
+    height: auto; 
+    border-radius: 70%; 
+    overflow: hidden; 
+    margin: 0 auto; 
+}
+
+.profile-image img {
+    width: 100%;
+    height: auto;
+}
+
+.about-me-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+}
+
+.instagram-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.instagram-button:hover {
+    background-color: #00BD56;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    color: #fff;
+    background-color: #2F64A3;
+}
+
+.footer {
+    font-size: 20px;
+    width: auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #2F64A3;
+    color: white;
+}
